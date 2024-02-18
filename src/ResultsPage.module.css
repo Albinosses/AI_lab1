@@ -1,0 +1,19 @@
+/* ResultsPage.module.css */
+
+.resultsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.chartContainer {
+    width: 45%;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .chartContainer {
+        width: 100%;
+    }
+}

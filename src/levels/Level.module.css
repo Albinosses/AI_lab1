@@ -1,0 +1,53 @@
+/* Level.module.css */
+
+.expertContainer {
+    text-align: center; /* Center align the content */
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.sectionTitle {
+    font-size: 24px;
+    margin-bottom: 20px; /* Increased margin to add space below the title */
+    text-align: center; /* Center align the title */
+}
+
+.question {
+    font-size: 18px;
+    margin-bottom: 10px; /* Increased margin between questions */
+    text-align: left; /* Align questions to the left */
+}
+
+.radioGroup {
+    margin-bottom: 15px;
+    text-align: left; /* Align radio buttons to the left */
+}
+
+.radioGroup label {
+    display: block; /* Display label as a block element */
+    margin-bottom: 5px; /* Add margin between radio buttons */
+}
+
+.radioGroup input[type="radio"] {
+    display: inline-block; /* Display radio button inline with text */
+    vertical-align: middle; /* Align radio button vertically with text */
+    margin-right: 5px; /* Add space between radio button and text */
+}
+
+.clearButton {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clearButton:hover {
+    background-color: #0056b3;
+}

@@ -1,24 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import LoginPage from './LoginPage';
+import QuestionnairePage from './QuestionnairePage';
+import ResultsPage from "./ResultsPage";
+//import ResultsPage from './ResultsPage';
+
+localStorage.clear()
 
 function App() {
+    const [answers, setAnswers] = useState(() => {
+        const storedAnswers = localStorage.getItem('answers')
+        return (storedAnswers && storedAnswers !== 'null') ? JSON.parse(storedAnswers) : {
+            novice: {
+                q1: null,
+                q2: null,
+                q3: null,
+                q4: null
+            },
+            advanced_beginner: {
+                q1: null,
+                q2: null,
+                q3: null
+            },
+            competent: {
+                q1: null,
+                q2: null,
+                q3: null
+            },
+            proficient: {
+                q1: null,
+                q2: null,
+                q3: null
+            },
+            expert: {
+                q1: null,
+                q2: null,
+                q3: null
+            }
+        }
+    });
+
+    useEffect(() => {
+        localStorage.setItem('answers', JSON.stringify(answers));
+    }, [answers]);
+
+    const handleChange = (level, question, value) => {
+        setAnswers(prevState => ({
+            ...prevState,
+            [level]: {
+                ...prevState[level],
+                [question]: value
+            }
+        }));
+    };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/questionnaire" element={<QuestionnairePage answers={answers} handleChange={handleChange} />} />
+          <Route path="/results" element={<ResultsPage answers={answers} />} />
+        </Routes>
+      </Router>
   );
 }
 
