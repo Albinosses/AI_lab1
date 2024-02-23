@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import QuestionnairePage from './QuestionnairePage';
 import ResultsPage from "./ResultsPage";
-//import ResultsPage from './ResultsPage';
 
 localStorage.clear()
 

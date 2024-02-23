@@ -19,10 +19,10 @@ ChartJS.register(
 
 const ResultsPage = ({ answers }) => {
     const data1 = {
-        labels: ['Question 1', 'Question 2', 'Question 3', 'Question 4'],
+        labels: ['Питання 1', 'Питання 2', 'Питання 3', 'Питання 4'],
         datasets: [
             {
-                label: 'Novice level',
+                label: 'Новачок',
                 data: Object.values(answers.novice),
                 backgroundColor: 'aqua',
                 borderColor: 'black',
@@ -32,10 +32,10 @@ const ResultsPage = ({ answers }) => {
     }
 
     const data2 = {
-        labels: ['Question 1', 'Question 2', 'Question 3'],
+        labels: ['Питання 1', 'Питання 2', 'Питання 3'],
         datasets: [
             {
-                label: 'Advanced beginner level',
+                label: 'Твердий початківець',
                 data: Object.values(answers.advanced_beginner),
                 backgroundColor: 'green',
                 borderColor: 'black',
@@ -45,10 +45,10 @@ const ResultsPage = ({ answers }) => {
     }
 
     const data3 = {
-        labels: ['Question 1', 'Question 2', 'Question 3'],
+        labels: ['Питання 1', 'Питання 2', 'Питання 3'],
         datasets: [
             {
-                label: 'Competent level',
+                label: 'Компетентний',
                 data: Object.values(answers.competent),
                 backgroundColor: 'orange',
                 borderColor: 'black',
@@ -58,10 +58,10 @@ const ResultsPage = ({ answers }) => {
     }
 
     const data4 = {
-        labels: ['Question 1', 'Question 2', 'Question 3'],
+        labels: ['Питання 1', 'Питання 2', 'Питання 3'],
         datasets: [
             {
-                label: 'Proficient level',
+                label: 'Досвідчений',
                 data: Object.values(answers.proficient),
                 backgroundColor: 'pink',
                 borderColor: 'black',
@@ -71,10 +71,10 @@ const ResultsPage = ({ answers }) => {
     }
 
     const data5 = {
-        labels: ['Question 1', 'Question 2', 'Question 3'],
+        labels: ['Питання 1', 'Питання 2', 'Питання 3'],
         datasets: [
             {
-                label: 'Expert level',
+                label: 'Експерт',
                 data: Object.values(answers.expert),
                 backgroundColor: 'magenta',
                 borderColor: 'black',
@@ -84,7 +84,7 @@ const ResultsPage = ({ answers }) => {
     }
 
     const data6 = {
-        labels: ['Novice', 'Advanced Beginner', 'Competent', 'Proficient', 'Expert'],
+        labels: ['Новачок', 'Твердий початківець', 'Компетентний', 'Досвідчений', 'Експерт'],
         datasets: [
             {
                 label: 'Expert level',
@@ -106,7 +106,21 @@ const ResultsPage = ({ answers }) => {
 
     return(
         <div>
-            <h2 style={{textAlign: 'center'}}> Results </h2>
+            <h2 style={{textAlign: 'center'}}> Результати опитування {localStorage.userName} </h2>
+            <div className={styles.resultsPlate}>
+                <h4> Новачок: {Object.values(answers.novice).reduce((acc, currentValue) => acc + currentValue, 0)} /
+                    20 </h4>
+                <h4> Твердий
+                    початківець: {Object.values(answers.advanced_beginner).reduce((acc, currentValue) => acc + currentValue, 0)} /
+                    15 </h4>
+                <h4> Компетентний: {Object.values(answers.competent).reduce((acc, currentValue) => acc + currentValue, 0)} /
+                    15 </h4>
+                <h4> Досвідчений: {Object.values(answers.proficient).reduce((acc, currentValue) => acc + currentValue, 0)} /
+                    15 </h4>
+                <h4> Експерт: {Object.values(answers.expert).reduce((acc, currentValue) => acc + currentValue, 0)} /
+                    15 </h4>
+            </div>
+
             <div className={styles.resultsContainer}>
                 <div className={styles.chartContainer}>
                     <Bar
